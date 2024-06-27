@@ -1,5 +1,5 @@
 // 1- Importamos el módulo db
-const db = require("../db/db");
+const db = require("../db/db.js");
 
 // 2- getAllMovies
 const getAllMovies = (req,res)=>{

@@ -5,7 +5,7 @@ const express = require("express");
 const router = express.Router();
 
 // 3- Importamos el controlador de funciones
-const cultControllers = require("../controllers/cultControllers");
+const cultControllers = require("../controllers/cultControllers.js");
 
 // 4- Planteamos la solicitud put
 router.put("/registro", cultControllers.updateUsu);
