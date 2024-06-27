@@ -1,11 +1,11 @@
 // 1- Importamos el módulo mysql
-const mysql = require("mysql");
+const mysql = require("mysql2");
 
 // 2- Configuración de la conexión
 const connection = mysql.createConnection({
     host:"localhost", 
     user:"root",
-    password:"",
+    password:"33834264",
     port: 3306,
 });
 
