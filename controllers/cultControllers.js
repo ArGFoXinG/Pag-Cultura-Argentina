@@ -22,23 +22,38 @@ const getMovieById = (req,res)=>{
     });
 };
 
-// 4- updateUsu
-const updateUsu = (req,res)=>{
-    const {id} = req.params;
-    const{nombre, apellido, email, contraseña, fechaDeNac, pais} = req.body;
-    const sql = 'UPDATE usu SET nombre = ?, apellido = ?, email = ?, contraseña = ?, fechaDeNac = ?, pais = ? WHERE id = ?';
+// 4- createUsu
+const createUsu = (req,res)=>{
+    const {nombre, apellido, email, contraseña, fechaDeNac, pais} = req.body;
+    const sql = 'INSERT INTO cultArg (nombre, apellido, email, contraseña, fechaDeNac, pais) VALUES (?, ?, ?, ?, ?, ?)';
 
-    db.query(sql, [nombre, apellido, email, contraseña, fechaDeNac, pais, id], (error, results)=>{
+    db.query(sql, [nombre, apellido, email, contraseña, fechaDeNac, pais], (error, results)=>{
         if(error){throw error};
         res.json({mensaje: "Usuario registrado con éxito"});
     });
 };
 
+// createMovie
+const createMovie = (req, res)=>{
+    const {title, director, year} = req.body;
+
+    const sql = "INSERT INTO movies (title, director, year) VALUES (?, ?, ?)";
+
+    db.query(sql, [title, director, year], (error, result)=>{
+        
+        if(error){throw error};
+        
+        res.json({mensaje: "Película creada"});
+    });
+};
+
+
 // Exportamos los modulos
 module.exports = {
     getAllMovies,
     getMovieById,
-    updateUsu
+    createUsu,
+    createMovie
 };
 
 // Pasamos a configurar db.js

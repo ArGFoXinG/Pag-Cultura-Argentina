@@ -7,7 +7,8 @@ const router = express.Router();
 // 3- Importamos el controlador de funciones
 const cultControllers = require("../controllers/cultControllers.js");
 
-// 4- Planteamos la solicitud get
+// 4- Planteamos la solicitud get y post
+router.post("/create", cultControllers.createMovie);
 router.get("/list", cultControllers.getAllMovies);
 router.get("/:id", cultControllers.getMovieById);
 

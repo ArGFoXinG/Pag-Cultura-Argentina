@@ -39,11 +39,27 @@ connection.connect((err)=>{
             email VARCHAR(255) NOT NULL,
             contraseña VARCHAR(20) NOT NULL,
             fechaDeNac DATE NOT NULL,
-            pais INT NOT NULL
+            pais VARCHAR(255) NOT NULL
+            );
+            `;
+
+            const createTableQuery2 = `
+            CREATE TABLE IF NOT EXISTS movies (
+            id INT AUTO_INCREMENT PRIMARY KEY,
+            title VARCHAR(255) NOT NULL,
+            director VARCHAR(255) NOT NULL,
+            year INT NOT NULL
             );
             `;
 
             connection.query(createTableQuery, (err,result)=>{
+                if(err) {
+                    console.error('Error al crear la tabla:', err);
+                    return;
+                }
+                console.log("Tabla: CREADA/EXISTENTE/GARANTIZADA");
+            });
+            connection.query(createTableQuery2, (err,result)=>{
                 if(err) {
                     console.error('Error al crear la tabla:', err);
                     return;
