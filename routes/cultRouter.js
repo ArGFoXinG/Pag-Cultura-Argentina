@@ -12,6 +12,8 @@ router.post("/create", cultControllers.createMovie);
 router.get("/list", cultControllers.getAllMovies);
 router.get("/:id", cultControllers.getMovieById);
 router.post("/registro", cultControllers.createUsu);
+router.put("/:id", cultControllers.updateMovie);
+router.delete("/:id", cultControllers.deleteMovie);
 
 // 5- Exportamos el módulo
 module.exports = router;

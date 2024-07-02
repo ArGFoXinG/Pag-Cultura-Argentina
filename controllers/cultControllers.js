@@ -47,13 +47,44 @@ const createMovie = (req, res)=>{
     });
 };
 
+// updateMovie
+const updateMovie = (req, res)=>{
+    const {id} = req.params;
+    const {title, director, year} = req.body;
+
+    const sql = 'UPDATE movies SET title = ?, director = ?, year = ? WHERE id = ?';
+
+    db.query(sql, [title, director, year, id], (error, result)=>{
+        //si sucede un error
+        if(error){throw error};
+        //si todo sale bien
+        res.json({mensaje: "Película actualizada"});
+    });
+};
+
+// deleteMovie
+const deleteMovie = (req, res)=>{
+    
+    const {id} = req.params;
+    const sql = 'DELETE FROM movies WHERE id = ?';
+
+    // Pasamos la consulta a la base de datos
+    db.query(sql, [id], (error, result)=>{
+        //si sucede un error
+        if(error){throw error};
+        //si todo sale bien
+        res.json({mensaje: "Película borrada"});
+    });
+};
 
 // Exportamos los modulos
 module.exports = {
     getAllMovies,
     getMovieById,
     createUsu,
-    createMovie
+    createMovie,
+    updateMovie,
+    deleteMovie
 };
 
 // Pasamos a configurar db.js
