@@ -24,10 +24,10 @@ const getMovieById = (req,res)=>{
 
 // 4- createUsu
 const createUsu = (req,res)=>{
-    const {nombre, apellido, email, contraseña, fechaDeNac, pais} = req.body;
-    const sql = 'INSERT INTO cultArg (nombre, apellido, email, contraseña, fechaDeNac, pais) VALUES (?, ?, ?, ?, ?, ?)';
+    const {nombre, apellido, email, contraseña, dni, pais} = req.body;
+    const sql = 'INSERT INTO cultArg (nombre, apellido, email, contraseña, dni, pais) VALUES (?, ?, ?, ?, ?, ?)';
 
-    db.query(sql, [nombre, apellido, email, contraseña, fechaDeNac, pais], (error, results)=>{
+    db.query(sql, [nombre, apellido, email, contraseña, dni, pais], (error, results)=>{
         if(error){throw error};
         res.json({mensaje: "Usuario registrado con éxito"});
     });

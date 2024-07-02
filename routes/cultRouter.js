@@ -11,6 +11,7 @@ const cultControllers = require("../controllers/cultControllers.js");
 router.post("/create", cultControllers.createMovie);
 router.get("/list", cultControllers.getAllMovies);
 router.get("/:id", cultControllers.getMovieById);
+router.post("/registro", cultControllers.createUsu);
 
 // 5- Exportamos el módulo
 module.exports = router;

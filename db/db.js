@@ -38,7 +38,7 @@ connection.connect((err)=>{
             apellido VARCHAR(255) NOT NULL,
             email VARCHAR(255) NOT NULL,
             contraseña VARCHAR(20) NOT NULL,
-            fechaDeNac DATE NOT NULL,
+            dni INT NOT NULL,
             pais VARCHAR(255) NOT NULL
             );
             `;
